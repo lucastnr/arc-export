@@ -8,6 +8,7 @@ import os
 import subprocess
 from datetime import datetime
 from pathlib import Path
+from typing import Tuple, Union
 
 
 class Colors:
@@ -104,7 +105,7 @@ def setup_logging(is_verbose: bool) -> None:
         logging.getLogger().setLevel(logging.INFO)
 
 
-def get_version() -> tuple[str, datetime]:
+def get_version() -> Union[Tuple[str, datetime], Tuple[None, None]]:
     try:
         commit_hash: str = (
             subprocess.check_output(["git", "rev-parse", "--short", "HEAD"])
@@ -117,11 +118,10 @@ def get_version() -> tuple[str, datetime]:
             .strip()
         )
         commit_time = datetime.fromtimestamp(int(commit_time_str))
+        return commit_hash, commit_time
     except Exception:
-        commit_hash = None
-        commit_time = None
+        return None, None
 
-    return commit_hash, commit_time
 
 
 def read_json() -> dict:
