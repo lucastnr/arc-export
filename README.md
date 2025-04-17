@@ -38,23 +38,18 @@ python main.py [-h] [-s] [-o OUTPUT] [-v] [--version]
 If you encounter any problems, manually copy the `StorableSidebar.json` file from the `~/Library/Application Support/Arc/` directory to the project's directory and run the script again.
 
 ## Features
-
 The script supports various command-line options for enhanced functionality:
 
 - **Show help message and exit**
-
   - `-h`, `--help`
 
 - **Silence output**
-
   - `-s`, `--silent`
 
 - **Specify the output file path**
-
   - `-o OUTPUT`, `--output OUTPUT`
 
 - **Enable verbose output**
-
   - `-v`, `--verbose`
 
 - **Print the git short hash and commit time**
@@ -68,7 +63,7 @@ Example usage:
 
 ## How It Works
 
-1. **Read JSON**: Reads the `StorableSidebar.json` file from the Arc Browser's directory _or_ the project's directory.
+1. **Read JSON**: Reads the `StorableSidebar.json` file from the Arc Browser's directory *or* the project's directory.
 2. **Convert Data**: Converts the JSON data into a hierarchical bookmarks dictionary.
 3. **Generate HTML**: Transforms the bookmarks dictionary into an HTML file.
 4. **Write HTML**: Saves the HTML file with a timestamp, allowing it to be imported into any web browser.
